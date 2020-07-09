@@ -1,0 +1,35 @@
+<h2>Simple example </h2>
+this message :
+<div>{{message$ | async}}</div>
+
+<button (click)="spanishMessage()">SPANICH</button>
+<button (click)="frenchMessage()">FRENCH</button>
+<h2>Post example </h2>
+<div *ngIf="post$ | async as p">
+  <div>{{p.likes}}</div>
+  <h2>{{p.text}}</h2>
+</div>
+
+<div>
+  <button (click)="upvote()">upvote</button>
+  <button (click)="downvote()">downvote</button>
+  <button (click)="resetPost()">resetPost</button>
+  <input [(ngModel)]="text" type="text">
+  <button (click)="editText()">editText</button>
+</div>
+<h2>Tutorial example </h2>
+<app-create-tutorial></app-create-tutorial>
+<app-read-tutorial></app-read-tutorial>
+<h2>Shopping List </h2>
+<ng-container *ngFor="let item of shoppingList$ | async; let i = index">
+  <div>{{item.id}}</div>
+  <div>{{item.name}}</div>
+  <button (click)="remove(item.id)">X</button>
+</ng-container>
+<form ngSubmit="addShoppingListItem()">
+   
+  <input type="text" placeholder="name"name="itemName" [(ngModel)]="newShoppingItem.name">
+</form>
+<button type="submit" (click)="addShoppingListItem()">Add Shopping List item </button>
+
+

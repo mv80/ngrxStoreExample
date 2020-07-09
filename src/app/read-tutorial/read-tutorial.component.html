@@ -1,0 +1,10 @@
+<p>read-tutorial works!</p>
+<div *ngFor="let tutorial of tutorials | async ; let i =index">
+    <div>{{tutorial.name}}</div>
+    <ul>
+        <li> <a href="{{tutorial.url}}" target="_blank">{{tutorial.name}}</a>
+        <button (click)="remove(i)">Remove</button>
+        </li>
+    </ul>
+
+</div>
